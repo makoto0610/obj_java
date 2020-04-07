@@ -1,17 +1,18 @@
 public class Obj {
-	public static void main(String[] args){
+    public static void main(String[] args) {
+        Duration durationSum = new Duration(0, 0);
 
-    Duration durationSum = new Duration(0, 0);
+        // 1ヶ月24日働く
+        Duration duration1 = new Duration(1, 24);
+        durationSum.add(duration1);
 
-    //1ヶ月24日働く
-    Duration duration1 = new Duration(1, 24);
-    durationSum.add(duration1);
+        // 3ヶ月15日働く
+        Duration duration2 = new Duration(3, 15);
+        durationSum.add(duration2);
 
-    //3ヶ月15日働く
-    Duration duration2 = new Duration(3, 15);
-    durationSum.add(duration2);
-
-    //自動的にtoString()が呼ばれる
-    System.out.println(durationSum);//0年5ヶ月9日
-  }
+        // 自動的にtoString()が呼ばれる
+        // toStringがoverrideされている場合は自分のクラス、されていない
+        // 場合はobject classのtoStringが呼ばれる。
+        System.out.println(durationSum);//0年5ヶ月9日
+    }
 }

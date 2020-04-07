@@ -3,14 +3,15 @@ public class Duration {
   /** 1ヶ月とみなす日数 */
   public static final int DAY_OF_MONTH = 30;  
 
-  //ユーザーが勝手に変更できないようにprivate（非公開）にする
-  private int monthNum;//月数
-  private int dayNum;//日数
+  // ユーザーが勝手に変更できないようにprivate（非公開）にする
+  // Otherwise it will be considered as violation of encapsulation.
+  private int monthNum; //月数
+  private int dayNum; //日数
 
   /** monthNumヶ月dayNum日 */
   public Duration(int monthNum, int dayNum){
     //DAY_OF_MONTH(30)日は1ヶ月換算
-    this.monthNum = monthNum + dayNum/DAY_OF_MONTH;
+    this.monthNum = monthNum + dayNum / DAY_OF_MONTH;
     this.dayNum = dayNum % DAY_OF_MONTH;
   }
 
@@ -19,7 +20,7 @@ public class Duration {
     this.dayNum = this.dayNum + duration.getDayNum();
 
     //DAY_OF_MONTH(30)日は1ヶ月換算
-    this.monthNum = this.monthNum + this.dayNum/DAY_OF_MONTH;
+    this.monthNum = this.monthNum + this.dayNum / DAY_OF_MONTH;
     this.dayNum = this.dayNum % DAY_OF_MONTH;
   }
 
@@ -33,6 +34,6 @@ public class Duration {
 
   @Override
   public String toString(){
-      return (monthNum/12)+"年"+(monthNum%12)+"ヶ月"+dayNum+"日";
+      return (monthNum / 12)+ "年" +(monthNum % 12) + "ヶ月" + dayNum + "日";
   }
 }
